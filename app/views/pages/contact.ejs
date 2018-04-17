@@ -1,0 +1,41 @@
+<div id="contact" v-cloak>
+  <div class="container">
+    <h1 class="text-center">¡Contacta con nosotros!</h1>
+    <div class="contact-form" v-if="!cloudSuccess">
+      <p class="text-center">¿Tienes una pregunta para nosotros? ¿O quizá qieres recomendarnos algo? Nos agrada estar en contacto con usuarios y posibles nuevos usuarios de OHSoft, y estaremos felices de responder preguntas sobre nuestros precios, procesos, o soluciones a su empresa. ¡Envíenos un mensaje y le responderemos lo mas rápido posible!</p>
+      <hr/>
+      <ajax-form action="deliverContactFormMessage" :syncing.sync="syncing" :cloud-error.sync="cloudError" @submitted="submittedForm()" :handle-parsing="handleParsingForm">
+        <div class="form-group">
+          <label for="full-name">Nombre</label>
+          <input class="form-control" id="full-name" name="full-name" type="text"  :class="[formErrors.nombre ? 'is-invalid' : '']" v-model.trim="formData.nombre" placeholder="Pedro P. Pérez" autofocus>
+          <div class="invalid-feedback" v-if="formErrors.nombre">Por favor, haznos saber tu nombre.</div>
+        </div>
+        <div class="form-group">
+          <label for="email-address">Correo electrónico</label>
+          <input class="form-control" id="email-address" name="email-address" type="email"  :class="[formErrors.correo ? 'is-invalid' : '']" v-model.trim="formData.correo" placeholder="pedrito@example.com">
+          <div class="invalid-feedback" v-if="formErrors.correo">Por favor, ingrese una dirección válida de correo electrónico.</div>
+        </div>
+        <div class="form-group">
+          <label for="topic">Tema del contacto</label>
+          <input class="form-control" id="topic" name="topic" type="text"  :class="[formErrors.topic ? 'is-invalid' : '']" v-model.trim="formData.topic" placeholder="Sobre el precio...">
+          <div class="invalid-feedback" v-if="formErrors.topic">Por favor, escriba el tema de su correo.</div>
+        </div>
+        <div class="form-group">
+          <label for="message">Mensaje</label>
+          <textarea class="form-control" id="message" name="message" :class="[formErrors.message ? 'is-invalid' : '']" v-model.trim="formData.message" placeholder="¿Cómo puedo obtener una cuenta en la aplicación?"></textarea>
+          <div class="invalid-feedback" v-if="formErrors.message">El mensaje no puede estar vacío.</div>
+        </div>
+        <p class="text-danger" v-if="cloudError"><small>Ha ocurrido un error inesperado mientras se ejecutaba la acción. Por favor verifique su información e intente de nuevo, o <a href="/contact">contacte con nosotros</a> si el error persiste.</small></p>
+        <div class="form-group">
+          <ajax-button type="submit" :syncing="syncing" class="btn btn-dark btn-lg btn-block">Enviar mensaje</ajax-button>
+        </div>
+      </ajax-form>
+    </div>
+    <div class="success-message" v-if="cloudSuccess">
+      <p class="text-center">Thanks for reaching out!</p>
+      <hr/>
+      <p>We have received your message, and someone from our team will get back to you soon.</p>
+    </div>
+  </div>
+</div>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

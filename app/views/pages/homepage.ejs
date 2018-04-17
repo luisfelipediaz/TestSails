@@ -1,0 +1,68 @@
+<div id="homepage" :class="[heroHeightSet ? '' : 'uninitialized']" v-cloak>
+  <div class="hero d-flex flex-column justify-content-center" full-page-hero>
+    <div class="container text-center">
+      <div class="hero-image">
+        <img class="sky" alt="The sky above the ocean" src="/images/hero-sky.png"/>
+        <img class="cloud cloud-1" alt="A grayish-blue cloud" src="/images/hero-cloud.png"/>
+        <img class="cloud cloud-2" alt="Another grayish-blue cloud" src="/images/hero-cloud.png"/>
+        <img class="ship" alt="A ship hovering a few feet over the surface of the water, bearing a flagpole with the Sails.js logo" src="/images/hero-ship.png"/>
+        <img class="water" alt="The shadow of the floating ship on the water" src="/images/hero-water.png"/>
+      </div>
+      <h1 class="display-4 text-secondary">Software para SG-SST</h1>
+      <div>
+        <div class="more-info-text" @click="clickHeroButton()">
+          <div class="text text-secondary">Conocer mas</div>
+          <div class="icon">&darr;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="about-wrapper" role="scroll-destination">
+    <div class="container">
+      <div class="about text-center">
+        <h3>Realiza de forma sencilla y ordenada la documentación para SG-SST</h3>
+        <p>OHSoft es una herramienta que facilita el manejo de documentación de los Sistemas de Gestión de
+          Salud y Seguridad en el Trabajo SG-SST. Esta herramienta permite:
+        </p>
+      </div>
+      <div class="features text-center">
+        <div class="row">
+          <div class="feature col-sm">
+            <div class="icon" style = "background : gray">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <h4>Manejo de documentación</h4>
+            <p class="text-muted">Ofrece una forma sencilla y ordenada de almacenar los documentos de los SG-SST
+              ¡EN LÍNEA! De esta forma, podrá tener siempre disponible la documentación de su empresa.
+            </p>
+          </div>
+          <div class="col-sm feature">
+            <div class="icon" style = "background : gray">
+              <i class="fas fa-tachometer-alt"></i>
+            </div>
+            <h4>Seguimiento al proceso</h4>
+            <p class="text-muted">Permite el seguimiento de los anexos relacionados al SG-SST de su empresa,
+            de tal forma que permita realizar rápidas tomas de desición.
+            </p>
+          </div>
+          <div class="col-sm feature">
+            <div class="icon" style = "background : gray">
+              <i class="fas fa-clipboard-list"></i>
+            </div>
+            <h4>Monitoreo constante</h4>
+            <p class="text-muted">La herramienta permite que personal especializado revise la documentación de 
+            su empresa y esté atento del progreso del proyecto del SG-SST.
+            </p>
+          </div>
+        </div>
+        <a class="btn btn-outline-secondary mt-5" href="/faq">Aprender mas</a>
+      </div>
+    </div>
+  </div>
+    <div class="pep-talk text-center">
+      <h3>Let's get to work.</h3>
+      <p>We think this project is a pretty convenient starting point, but of course there's no one-size-fits-all solution. The good news is, this app is in your hands now, so you can jump into the files and adapt it to your needs. Change some code around. Break stuff.  Fix it. And above all: <strong>make something people want to use</strong>.</p>
+      <p><span class="text-muted">&hearts;</span> <a href="https://sailsjs.com/about">The Sails Team</a></p>
+    </div>
+</div>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
