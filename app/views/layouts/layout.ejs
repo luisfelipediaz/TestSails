@@ -4,7 +4,7 @@
     <title>OHSoft</title>
     <% /* Viewport tag for sensible mobile support */ %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" charset="UTF-8">
-
+    <base href="/">
     <% /* Script tags should normally be included further down the page- but scripts
     that load fonts are a special exception to the rule.  (We include them up here
     above the «body» to prevent the page flickering when fonts load.)  */ %>
@@ -47,6 +47,7 @@
           <% if(me) { %>
           <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/contact">Contacto</a>
           <!-- Only in desktop nav -->
+          <a class="nav-item nav-link ml-2 ml-md-0 mr-2 d-sm-block" href="/anexos">Anexos</a>
           <div class="nav-item dropdown d-none d-sm-block">
             <a class="nav-link dropdown-toggle" id="header-account-menu-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
             <div class="dropdown-menu account-menu" aria-labelledby="header-account-menu-link">
@@ -55,13 +56,13 @@
             </div>
           </div>
           <!-- Only in mobile nav -->
+          <a class="nav-item nav-link ml-2 mr-2 d-block d-sm-none" href="/anexos">Anexos</a>
           <a class="nav-item nav-link ml-2 mr-2 d-block d-sm-none" href="/account">Configuración</a>
           <a class="nav-item nav-link ml-2 mr-2 d-block d-sm-none" href="/logout">Cerrar sesión</a>
           <% } else { %>
           <!-- LOGGED-OUT NAVIGATION -->
           <!--a class="nav-item nav-link ml-2 ml-md-0 mr-2" href="/faq">FAQ</a-->
           <a class="nav-item nav-link ml-2 ml-md-0 mr-2" href="/login">Iniciar sesión</a>
-          <a class="nav-item nav-link ml-2 ml-md-0 mr-2" href="/anexos">Anexos</a>
           <!-- Only in desktop nav -->
           <div class="form-inline d-none ml-2 d-md-block" >
             <a class="btn btn-outline-secondary" href="/signup">Registrarse</a>

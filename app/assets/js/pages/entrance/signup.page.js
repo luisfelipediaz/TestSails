@@ -113,6 +113,8 @@ parasails.registerPage('uploadfiles', {
       this.getBase64(this.$refs.myFiles.files[0]);
     },
     submittedForm: async function () {
+      alert('Se guardó el archivo correctamente');
+      window.location.reload();
     },
     handleParsingForm: function () {
       debugger;

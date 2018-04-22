@@ -16,12 +16,14 @@ module.exports.routes = {
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
   'GET /':                   { action: 'view-homepage-or-redirect' },
   'GET /welcome':            { action: 'dashboard/view-welcome' },
+  'GET /anexos/*':           { action: 'documentation/view-anexos'},
+  'GET /anexos':             { action: 'documentation/view-anexos'},
+
 
   'GET /faq':                { view:   'pages/faq' },
   'GET /legal/terms':        { view:   'pages/legal/terms' },
   'GET /legal/privacy':      { view:   'pages/legal/privacy' },
   'GET /contact':            { view:   'pages/contact' },
-  'GET /anexos':             { view: 'pages/documentation/anexos'},
   'GET /anexos/anexo_0':            { view: 'pages/documentation/Anexo0/anexo_0'},
   'GET /anexos/anexo_1':            { view: 'pages/documentation/Anexo1/anexo_1'},
   'GET /anexos/anexo_2':            { view: 'pages/documentation/Anexo2/anexo_2'},

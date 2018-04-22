@@ -90,6 +90,36 @@ the account verification message.)`,
     .intercept({name: 'UsageError'}, 'invalid')
     .fetch();
 
+    var querystring = require('querystring');
+    var empresa = JSON.stringify({
+      'nit' : newUserRecord.nit,
+      'nombre' : newUserRecord.nombre,
+      'correo' : newUserRecord.correo,
+      'contrasenia' : newUserRecord.password
+    });
+    
+    var http = require('http');
+    var options = { 
+      hostname: '127.0.0.1',
+      port: 8180,
+      path: '/ohsoftservices-1.0.0/api/empresa/registrar',
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'Content-Length': Buffer.byteLength(empresa)
+      }
+    };
+
+    var post_req = http.request(options, function(res){
+      res.setEncoding('utf8');
+      res.on('data', function (chunk) {
+          console.log('Response: ' + chunk);
+      });
+    });
+    console.log(empresa);
+    post_req.write(empresa);
+    post_req.end();
+
     // If billing feaures are enabled, save a new customer entry in the Stripe API.
     // Then persist the Stripe customer id in the database.
     if (sails.config.custom.enableBillingFeatures) {

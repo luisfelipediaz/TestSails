@@ -1,33 +1,18 @@
 <div id="uploadfiles" v-cloak>
 	<div class="container" v-if="!cloudSuccess">
-		<h1 class="text-center">Crear una cuenta</h1>
+		<h1 class="text">Anexo 0: nombre del anexo</h1>
 		<div class="signup-form">
-			<p class="text-center">Haz parte de OHSoft creando una cuenta para utilizar la aplicación</p>
+			<p class="text">Aquí debe ir la descripción del anexo</p>
 			<hr/>
 			<ajax-form action="uploadfiles" :syncing.sync="syncing" :cloud-error.sync="cloudError" @submitted="submittedForm()" :handle-parsing="handleParsingForm">
 				<div class="form-group">
 					<label for="full-name">Archivo</label>
 					<input class="form-control" id="full-name" type="file" @change="previewFiles" ref="myFiles" placeholder="OverrideSA" focus-first>
-				</div>
-				<div class="form-group">
-					<ajax-button type="submit" :syncing="syncing" class="btn-dark btn-lg btn-block">Crear cuenta</ajax-button>
+					<ajax-button type="submit" :syncing="syncing" class="btn btn-success">
+						<i class="fas fa-arrow-alt-circle-up"></i> Subir archivo
+					</ajax-button>
 				</div>
 			</ajax-form>
-			<p class="text-center">¿Su empresa ya tiene una cuenta?
-				<a href="/login">Inicie sesión</a>
-			</p>
-		</div>
-	</div>
-	<div class="container" v-if="cloudSuccess">
-		<h1 class="text-center">¡Verifique su correo electrónico!</h1>
-		<div class="success-message">
-			<hr/>
-			<p>La cuenta de su empresa ya está casi lista. Ahora debe verificar el correo electrónico enviado a
-				<strong>{{formData.correo}}</strong>.</p>
-			<p>(Usted puede acceder a la aplicación, pero algunas funcionalidades estarán desactivadas.)</p>
-			<p>
-				<a class="btn btn-outline-info" href="/">Ir a la página principal</a>
-			</p>
 		</div>
 	</div>
 </div>
