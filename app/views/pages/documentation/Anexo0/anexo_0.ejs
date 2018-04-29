@@ -1,6 +1,6 @@
 <div id="uploadfiles" v-cloak>
 	<div class="container" v-if="!cloudSuccess">
-		<h1 class="text">Anexo 0: nombre del anexo</h1>
+		<h1 class="text">{{ formData.nombreAnexo }}: {{ formData.descripcionAnexo }}</h1>
 		<div class="signup-form">
 			<p class="text">Aquí debe ir la descripción del anexo</p>
 			<hr/>
@@ -12,8 +12,15 @@
 						<i class="fas fa-arrow-alt-circle-up"></i> Subir archivo
 					</ajax-button>
 				</div>
+
+				<ul id="example-1">
+					<li v-for="item in formData.documents">
+						<a :href="item.url" download>{{ item.descripcion }}</a>
+					</li>
+				</ul>
 			</ajax-form>
 		</div>
+		
 	</div>
 </div>
 

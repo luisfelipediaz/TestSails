@@ -19,6 +19,8 @@ module.exports.routes = {
   'GET /anexos/*':           { action: 'documentation/view-anexos'},
   'GET /anexos':             { action: 'documentation/view-anexos'},
 
+  'GET /api/v1/documentation/listanexos':            { action: 'documentation/listanexos' },
+  
 
   'GET /faq':                { view:   'pages/faq' },
   'GET /legal/terms':        { view:   'pages/legal/terms' },

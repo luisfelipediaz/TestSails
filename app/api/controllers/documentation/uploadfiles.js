@@ -11,6 +11,11 @@ module.exports = {
 
 
 	inputs: {
+		anexo: {
+			required: true,
+			type: 'string'
+		},
+
 		name: {
 			required: true,
 			type: 'string',
@@ -44,10 +49,17 @@ module.exports = {
 		var rc = await User.findOne({
 			id: this.req.session.userId,
 		});
-		var dir = 'assets/documents/' + rc.nit;
+		var dir = `assets/documents/${rc.nit}`;
 		if (!fs.existsSync(dir)) {
 			fs.mkdirSync(dir);
 		}
+
+		dir += `/${inputs.anexo}`;
+
+		if (!fs.existsSync(dir)) {
+			fs.mkdirSync(dir);
+		}
+
 		fs.writeFile(dir + '/' + inputs.name, inputs.file.split(',')[1], 'base64', function (err) {
 			if (err) throw err;
 			console.log('done');
